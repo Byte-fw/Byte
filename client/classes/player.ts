@@ -37,7 +37,7 @@ export class Player extends PlayerPed {
         this.gangs = gangs;
         this.ped = new PlayerPed();
 
-        this.ped.setPosition(position);
+        this.ped.setPosition(position.xyz);
         this.ped.setHeading(position.w as IntRange<0, 361>);
         this.ped.setPedData(pedData);
 

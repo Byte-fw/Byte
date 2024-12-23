@@ -12,6 +12,7 @@ import { PedData } from "../shared/types/ped";
 import { savePlayerToDB } from "../database/player";
 import { TransactionResult } from "../database/db";
 import { UUID } from "../shared/utils/uuid";
+import { parseVector4 } from "../shared/utils/parseCoords";
 
 const logger = new Logger("Player");
 const eventNames = getEventNames();
@@ -224,7 +225,7 @@ export class Player extends User implements IObjectifiable<DBPlayerInfo> {
             data.uuid,
             { ...data.data, birthdate: new Timestamp(data.data.birthdate) },
             PlayerInventory.fromObject(src, data.inventory, config.getInventorySlots(), config.getMaxPlayerWeight()),
-            data.position,
+            parseVector4(data.position),
             data.jobs,
             data.gangs,
             data.pedData
