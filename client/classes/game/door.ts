@@ -1,3 +1,4 @@
+import { ByteGameObject } from "../../shared/classes/byteObject";
 import { uuid } from "../../shared/utils/uuid";
 
 export type DoorInitializer = {
@@ -22,11 +23,12 @@ export type DoorSystemConfig = {
 /**
  * Door system class. Useful when dealing with doors without worrying about synchrnozation.
  */
-export class CDoor {
+export class CDoor extends ByteGameObject {
     private systemHash: string;
     private doors: Array<DoorInitializer>;
     private config?: DoorSystemConfig;
     constructor(doors: Array<DoorInitializer>, customSystemHash?: string, config?: DoorSystemConfig) {
+        super();
         this.systemHash = customSystemHash || uuid();
         doors.forEach(door => this.addDoor(door));
         if (config) this.configure(config);
@@ -60,4 +62,8 @@ export class CDoor {
     public getConfig = () => this.config;
 
     public destroy = () => RemoveDoorFromSystem(GetHashKey(this.systemHash));
+
+    public asString() {
+        return `CDoor { systemHash: ${this.systemHash} }`;
+    }
 };
