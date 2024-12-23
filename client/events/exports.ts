@@ -22,6 +22,7 @@ import {
 import * as interfaces from "./exportedInterfaces";
 import * as types from "./exportedTypes";
 import { ByteSharedExport, sharedExport } from "../shared/byteSharedExport";
+import { CDoor } from "../classes/game/door";
 
 export type ByteExport = {
     interfaces: typeof interfaces;
@@ -40,6 +41,7 @@ export type ByteExport = {
             CObject: ExportedClass<typeof CObject>;
             CPed: ExportedClass<typeof CPed>;
             CVehicle: ExportedClass<typeof CVehicle>;
+            CDoor: ExportedClass<typeof CDoor>;
             Texture: ExportedClass<typeof Texture>;
             TextureDictionary: ExportedClass<typeof TextureDictionary>;
         };
@@ -72,6 +74,7 @@ const exporterFunction = (): ByteExport => ({
             CObject: new ExportedClass(CObject),
             CPed: new ExportedClass(CPed),
             CVehicle: new ExportedClass(CVehicle),
+            CDoor: new ExportedClass(CDoor),
             Texture: new ExportedClass(Texture),
             TextureDictionary: new ExportedClass(TextureDictionary)
         }
