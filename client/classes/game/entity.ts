@@ -1,3 +1,4 @@
+import { Optional } from "../../shared/classes/optional";
 import { Err, Ok, Result } from "../../shared/classes/result";
 import { IntRange } from "../../shared/types/generic";
 import { CModel } from "./model";
@@ -68,6 +69,14 @@ export class CEntity extends CModel implements INetworkeable {
 
     public freeze = (value: boolean) => FreezeEntityPosition(this.entityId, value && true);
     public isFrozen = (): boolean => IsEntityPositionFrozen(this.entityId);
+
+    public getClosestEntityOfType = (model: CModel | number, radius: number = float(10.0)): Optional<CEntity> => {
+        const hash = typeof model === "number" ? model : model.getHash();
+        const { x, y, z } = this.getPosition();
+        const entity = GetClosestObjectOfType(x, y, z, radius, hash, false, false, false);
+        if (entity === 0) return Optional.None();
+        return Optional.Some(new CEntity(entity));
+    };
 
     public getNetworkId = (): number => NetworkGetNetworkIdFromEntity(this.entityId);
 
