@@ -10,3 +10,4 @@ export * from "./eventNameController";
 export * from "./debugger";
 export * from "./typeChecker";
 export * from "./exported";
+export * from "./zones";
