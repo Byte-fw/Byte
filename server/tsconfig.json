@@ -2,8 +2,13 @@
     "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
     "compilerOptions": {
         "target": "ESNext",
-        "lib": ["ESNext", "DOM"],
-        "typeRoots": ["../node_modules/@typescript-to-lua"],
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "typeRoots": [
+            "../node_modules/@typescript-to-lua"
+        ],
         "module": "ES2020",
         "moduleResolution": "Node",
         "strict": true,
@@ -12,7 +17,10 @@
         "declaration": true,
         "noUnusedLocals": true
     },
-    "exclude": ["../node_modules", ".ignored_shared"],
+    "exclude": [
+        "../node_modules",
+        ".ignored_shared"
+    ],
     "tstl": {
         "luaTarget": "5.4",
         "noImplicitSelf": true,
@@ -21,7 +29,10 @@
     "typedocOptions": {
         "name": "Server",
         "out": "../docs/server",
-        "exclude": "**/.ignored_shared/**/*.ts",
+        "exclude": [
+            "**/.ignored_shared/**/*.ts",
+            "./*/**/index.ts"
+        ],
         "entryPointStrategy": "expand",
         "plugin": "typedoc-github-theme"
     }
