@@ -45,7 +45,7 @@
         <game>gta5</game>
         <author>Zurky</author>
         <description>Batteries included framework for the Cfx.re platform.</description>
-        <version>0.4.2</version>
+        <version>0.4.3</version>
         <client_scripts>
             <client_script>lua/client/*.lua</client_script>
             <client_script>build/client_bundle.lua</client_script>
@@ -66,5 +66,6 @@
         <lua54 enable="true" />
     </manifest>
 </config>
+
 
 
