@@ -14,10 +14,21 @@ export type DoorSystemConfig = {
     */
     openRatio?: number;
     holdOpen?: boolean;
+    removeSpring?: boolean;
     automatic?: {
         distance: number;
         rate?: number;
     };
+};
+
+export enum DoorState {
+    UNLOCKED = 0,
+    LOCKED = 1,
+    DOORSTATE_FORCE_LOCKED_UNTIL_OUT_OF_AREA = 2,
+    DOORSTATE_FORCE_UNLOCKED_THIS_FRAME = 3,
+    DOORSTATE_FORCE_LOCKED_THIS_FRAME = 4,
+    DOORSTATE_FORCE_OPEN_THIS_FRAME = 5,
+    DOORSTATE_FORCE_CLOSED_THIS_FRAME = 6
 };
 
 /**
@@ -43,12 +54,15 @@ export class CDoor extends ByteGameObject {
 
     private configure(config: DoorSystemConfig) {
         const systemHash = GetHashKey(this.systemHash);
-        const { openRatio, holdOpen, automatic } = config;
+        const { openRatio, holdOpen, automatic, removeSpring } = config;
         if (openRatio)
             DoorSystemSetOpenRatio(systemHash, openRatio, true, true);
 
         if (holdOpen)
             DoorSystemSetHoldOpen(systemHash, holdOpen);
+
+        if (removeSpring)
+            DoorSystemSetSpringRemoved(systemHash, removeSpring, true, true);
 
         if (automatic) {
             const { distance, rate } = automatic;
@@ -60,6 +74,9 @@ export class CDoor extends ByteGameObject {
     public getSystemHash = () => this.systemHash;
     public getDoors = () => this.doors;
     public getConfig = () => this.config;
+
+    public setState = (state: DoorState) => DoorSystemSetDoorState(GetHashKey(this.systemHash), state, true, true);
+    public getState = (): DoorState => DoorSystemGetDoorState(GetHashKey(this.systemHash));
 
     public destroy = () => RemoveDoorFromSystem(GetHashKey(this.systemHash));
 
