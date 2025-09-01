@@ -1,4 +1,4 @@
-import { XMLNode } from "../native_defs";
+import { XMLNode } from "@byte-fw/fivem-natives";
 import { ConfigController } from "./configController";
 import { XMLSearchNode } from "./xml";
 

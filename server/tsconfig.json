@@ -7,10 +7,15 @@
             "DOM"
         ],
         "typeRoots": [
-            "../node_modules/@typescript-to-lua"
+            "../node_modules/@typescript-to-lua",
+            "../node_modules/@byte-fw"
         ],
-        "module": "ES2020",
-        "moduleResolution": "Node",
+        "module": "es2022",
+        "types": [
+            "language-extensions",
+            "fivem-natives/index.d.ts"
+        ],
+        "moduleResolution": "bundler",
         "strict": true,
         "rootDir": ".",
         "outDir": "../build/server",
@@ -19,6 +24,7 @@
     },
     "exclude": [
         "../node_modules",
+        "../shared",
         ".ignored_shared"
     ],
     "tstl": {

@@ -7,13 +7,15 @@
             "DOM"
         ],
         "typeRoots": [
-            "../node_modules/@typescript-to-lua"
+            "../node_modules/@typescript-to-lua",
+            "../node_modules/@byte-fw"
         ],
-        "module": "ES2020",
+        "module": "es2022",
         "types": [
-            "language-extensions"
+            "language-extensions",
+            "fivem-natives/index.d.ts"
         ],
-        "moduleResolution": "Node",
+        "moduleResolution": "bundler",
         "strict": true,
         "rootDir": ".",
         "outDir": "../build/client",
