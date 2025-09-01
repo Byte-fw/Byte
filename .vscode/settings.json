@@ -15,6 +15,7 @@
         "bun.lockb": true,
         "pnpm-lock.yaml": true,
         "*.bundle.json": true,
+        "shared/native_defs.d.ts": true,
         "**/tsconfig.json": true,
         "**/tsdoc.json": true,
         "lua": true,
