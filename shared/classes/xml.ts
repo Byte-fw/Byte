@@ -1,4 +1,4 @@
-import { XMLChild, XMLNode, XMLText } from "../native_defs";
+import { XMLChild, XMLNode, XMLText } from "@byte-fw/fivem-natives";
 
 /**
  * The search parameters for the XML search
@@ -20,7 +20,7 @@ export class XMLSearchNode {
     /**
      * 
      * @param node The root node from which to search from. To obtain the root node of a XML document,
-     * use the global function `XML.decode(documentString)` (it is declared in `native_defs.d.ts` and implemented in `lua/shared/xml.lua`).
+     * use the global function `XML.decode(documentString)` (it is declared in `@byte-fw/fivem-natives` and implemented in `lua/shared/xml.lua`).
      */
     constructor(node: XMLChild) {
         this.node = node;

@@ -1,5 +1,5 @@
 import { getEventNames } from "../shared/classes/eventNameController";
-import { CfxPromise } from "../shared/native_defs";
+import { CfxPromise } from "@byte-fw/fivem-natives";
 import { uuid, UUID } from "../shared/utils/uuid";
 
 const eventNames = getEventNames();

@@ -1,19 +1,21 @@
 {
     "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
     "compilerOptions": {
-        "target": "ESNext",
+        "target": "es2022",
         "lib": [
             "ESNext",
             "DOM"
         ],
         "typeRoots": [
-            "../node_modules/@typescript-to-lua"
+            "../node_modules/@typescript-to-lua",
+            "../node_modules/@byte-fw"
         ],
         "module": "ES2020",
         "types": [
-            "language-extensions"
+            "language-extensions",
+            "fivem-natives"
         ],
-        "moduleResolution": "Node",
+        "moduleResolution": "bundler",
         "strict": true,
         "rootDir": ".",
         "outDir": "../build/client",
